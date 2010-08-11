@@ -7,4 +7,8 @@ class Controller_Main extends Controller_Website {
 		
 	}
 
+	public function action_yform()
+	{
+		$this->view->bind('values', $_POST);
+	}
 }
