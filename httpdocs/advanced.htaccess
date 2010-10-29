@@ -39,9 +39,17 @@ RewriteRule .* - [E=REWRITEBASE:/%{ENV:PROJECTNAME}/]
 RewriteCond %{ENV:ENVIRONMENT} synsites-develop
 RewriteRule .* - [E=REWRITEBASE:/%{ENV:PROJECTNAME}-develop/]
 
-# Force to always use https for production and staging environments
-RewriteCond %{ENV:ENVIRONMENT} production [OR]
-RewriteCond %{ENV:ENVIRONMENT} synsites-staging [OR]
+# Force to always use https for production environment
+RewriteCond %{ENV:ENVIRONMENT} production
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{ENV:REWRITEBASE}$1 [R=301,L]
+
+# Force to always use https for staging environment
+RewriteCond %{ENV:ENVIRONMENT} synsites-staging
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{ENV:REWRITEBASE}$1 [R=301,L]
+
+# Force to always use https for staging-develop environment
 RewriteCond %{ENV:ENVIRONMENT} synsites-develop
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{ENV:REWRITEBASE}$1 [R=301,L]
@@ -54,7 +62,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{ENV:REWRITEBASE}$1 [R=301,L]
 
 # Protect application and system files from being viewed
 # We do this by keeping these directories out of the web root so this rule is not needed
-# RewriteRule ^(?:application|modules|system)\b - [F,L]
+# RewriteRule ^(?:application|modules|system)\b.* index.php/$0 - [F,L]
 
 # Allow any files or directories that exist to be displayed directly
 RewriteCond %{REQUEST_FILENAME} !-f
