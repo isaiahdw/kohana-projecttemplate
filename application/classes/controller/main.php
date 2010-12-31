@@ -2,10 +2,7 @@
 
 class Controller_Main extends Controller_Website {
 
-	public function action_index()
-	{
-		
-	}
+	public function action_index() {}
 
 	public function action_yform()
 	{
