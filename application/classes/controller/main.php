@@ -8,4 +8,11 @@ class Controller_Main extends Controller_Website {
 	{
 		$this->view->bind('values', $_POST);
 	}
+
+	public function action_notices()
+	{
+		Notices::add('success', 'some.message');
+		Notices::add('error', 'some.message');
+		Notices::add('warning', 'some.message');
+	}
 }
