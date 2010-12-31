@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class View_Main_Yform extends View_Website
+class View_Page_Main_Yform extends View_Page
 {
 	public $values;
 
