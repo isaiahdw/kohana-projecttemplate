@@ -40,12 +40,18 @@
 [submodule "modules/yform"]
 	path = modules/yform
 	url = git://github.com/synapsestudios/kohana-yform.git
-[submodule "modules/doctrinemigrations"]
-	path = modules/doctrinemigrations
-	url = git://github.com/synapsestudios/kohana-doctrinemigrations
 [submodule "modules/kostache"]
 	path = modules/kostache
 	url = git://github.com/synapsestudios/kohana-kostache
 [submodule "modules/media"]
 	path = modules/media
 	url = git://github.com/synapsestudios/kohana-media.git
+[submodule "modules/minion"]
+	path = modules/minion
+	url = git://github.com/synapsestudios/kohana-minion.git
+[submodule "modules/minion-tasks-repo"]
+	path = modules/minion-tasks-repo
+	url = git://github.com/synapsestudios/minion-tasks-repo.git
+[submodule "modules/git"]
+	path = modules/git
+	url = git://github.com/synapsestudios/kohana-git.git

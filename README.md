@@ -38,8 +38,8 @@ This repository is intended to quickly set up a basic project with all the initi
 	- **url** : 
 	- **version** : 
 - ### modules/kostache
-	- **url** : 
-	- **version** : 
+	- **url** : `git://github.com/synapsestudios/kohana-kostache.git`
+	- **version** : `synapse-unstable`
 - ### modules/media
 	- **url** : 
 	- **version** : 

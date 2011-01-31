@@ -9,9 +9,9 @@ return array
 		(
 			//@TODO change this to be project-specific
 			'hostname'   => 'localhost',
-			'username'   => 'user_name',
-			'password'   => 'password',
-			'database'   => 'db_name',
+			'username'   => 'root',
+			'password'   => 'synapse',
+			'database'   => 'vm',
 			'persistent' => FALSE,
 		),
 		'table_prefix' => '',
