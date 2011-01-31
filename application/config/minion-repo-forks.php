@@ -35,7 +35,7 @@ return array(
 		'path'       => MODPATH.'unittest',
 		'fetch_from' => 'https://github.com/kohana/unittest.git',
 		'push_to'    => 'git@github.com:synapsestudios/kohana-unittest.git',
-		'checkout'   => 'origin/3.1/develop',
+		'checkout'   => 'origin/3.0/develop',
 	),
 	'modules/userguide' => array(
 		'path'       => MODPATH.'userguide',
