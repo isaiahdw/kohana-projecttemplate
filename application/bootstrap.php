@@ -57,14 +57,6 @@ if (Kohana::$environment != Kohana::PRODUCTION)
 	Kohana_Config::instance()->attach(new Kohana_Config_File('config/environments/'.Kohana::$environment));
 }
 
-$apache_environment = strtolower(URL::title(@getenv('ENVIRONMENT')));
-
-if (empty($apache_environment))
-	die('You need to specify a valid ENVIRONMENT in your vhost definition');
-
-Kohana_Config::instance()->attach(new Kohana_Config_File('config/environments/apache/'.$apache_environment));
-unset($apache_environment);
-
 /**
  * Set the session save path.
  * @see  http://php.net/session-save-path
