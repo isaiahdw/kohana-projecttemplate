@@ -52,3 +52,6 @@
 [submodule "modules/minion-tasks-repo"]
 	path = modules/minion-tasks-repo
 	url = git://github.com/synapsestudios/minion-tasks-repo.git
+[submodule "modules/git"]
+	path = modules/git
+	url = git://github.com/synapsestudios/kohana-git.git
