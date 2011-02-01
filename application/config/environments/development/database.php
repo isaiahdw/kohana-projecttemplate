@@ -7,7 +7,7 @@ return array
 		'type'       => 'mysql',
 		'connection' => array
 		(
-			//@TODO change this to be project-specific
+			// @TODO change this to be project-specific
 			'hostname'   => 'localhost',
 			'username'   => 'root',
 			'password'   => 'synapse',
