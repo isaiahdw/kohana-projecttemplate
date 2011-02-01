@@ -47,7 +47,7 @@ This repository is intended to quickly set up a basic project with all the initi
 - ### modules/orm
 	- **url** : `git://github.com/synapsestudios/kohana-orm`
 	- **version** : `zeelot-3.1.0`
-	- **notes** : This branch had the initial work for ORMs changes to be used in 3.1.0, however they are backwards compatible with kohana 3.0.x so we used them on these projects as well. There are slight differences between this branch and what officially ended up getting into 3.1.0 but it is still a huge improvement from the 3.0.x ORM in our opinion.`
+	- **notes** : `This branch had the initial work for ORMs changes to be used in 3.1.0, however they are backwards compatible with kohana 3.0.x so we used them on these projects as well. There are slight differences between this branch and what officially ended up getting into 3.1.0 but it is still a huge improvement from the 3.0.x ORM in our opinion.`
 - ### modules/pagination
 	- **url** : `git://github.com/synapsestudios/kohana-pagination`
 	- **version** : `3.0/develop`
