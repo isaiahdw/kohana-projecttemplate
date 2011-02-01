@@ -2,11 +2,11 @@
 
 return array
 (
-	//@TODO change this to be environment-specific and override production value in environment config
+	// @TODO change this to be environment-specific and override production value in environment config
 	'save_path' => realpath(DOCROOT.'../../../sessions'),
 	'native' => array
 	(
-		//@TODO change this to be project-specific
+		// @TODO change this to be project-specific
 		'name' => 'project_template',
 	),
 	'database' => array
