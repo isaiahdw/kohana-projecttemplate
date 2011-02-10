@@ -18,6 +18,14 @@ abstract class View_Page extends View_Layout {
 		parent::_initialize();
 	}
 
+	public function site_name()
+	{
+		return array(
+			'title' => 'Project Template',
+			'url'   => URL::site(''),
+		);
+	}
+
 	public function title()
 	{
 		return __($this->title);
