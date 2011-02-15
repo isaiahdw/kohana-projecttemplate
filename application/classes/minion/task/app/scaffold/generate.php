@@ -6,10 +6,17 @@
  * Available config options are:
  *
  * --name=path/to/file
- *  
+ *
  *  This is a required config option, use it specify in which location the 
  *  files should be created.  You can specify a simple name (e.g. user)
- *  or you can specify a path to the name (e.g. user/admin)
+ *  or you can specify a path to the name (e.g. --name=user/admin).
+ *
+ * --actions=list,of,actions
+ *
+ *  This is an optional config option, use it to specify the actions to create
+ *  in the controller as well as the views and templates that should be
+ *  generated (e.g. --actions=create,edit,delete). If you leave this blank, it
+ *  will default to 'index'.
  *
  * @author Synapse Studios <info@synapsestudios.com>
  */
@@ -21,6 +28,7 @@ class Minion_Task_App_Scaffold_Generate extends Minion_Task {
 	 */
 	protected $_config = array(
 		'name',
+		'actions',
 	);
 
 	public function execute(array $config)
@@ -28,6 +36,14 @@ class Minion_Task_App_Scaffold_Generate extends Minion_Task {
 		if (empty($config['name']))
 			return 'Please provide --name'.PHP_EOL;
 
+		if (empty($config['actions']))
+		{
+			$actions[] = 'index';
+		}
+		else
+		{
+			$actions = explode(',', strtolower($config['actions']));
+		}
 		// Remove spaces from name
 		$name = trim(str_replace(' ', '', $config['name']), '/');
 
@@ -52,8 +68,8 @@ class Minion_Task_App_Scaffold_Generate extends Minion_Task {
 			}
 
 			$controller_path .= DIRECTORY_SEPARATOR.$file_path;
-			$view_path .= DIRECTORY_SEPARATOR.$file_path;
-			$template_path .= DIRECTORY_SEPARATOR.$file_path;
+			$view_path .= DIRECTORY_SEPARATOR.$file_path.DIRECTORY_SEPARATOR.$file_name;
+			$template_path .= DIRECTORY_SEPARATOR.$file_path.DIRECTORY_SEPARATOR.$file_name;
 
 			if ( ! is_dir($controller_path) AND ! mkdir($controller_path, 0755, TRUE))
 				return 'Faild to create path in controller directory'.PHP_EOL;
@@ -70,25 +86,29 @@ class Minion_Task_App_Scaffold_Generate extends Minion_Task {
 			$file_name = strtolower($class_name);
 		}
 
-		if ( ! file_exists($controller_path.DIRECTORY_SEPARATOR.$file_name))
+		if ( ! file_exists($controller_path.DIRECTORY_SEPARATOR.$file_name.'.php'))
 		{
 			$controller = Kostache::factory('minion/task/app/scaffold/generate/controller')
-				->set('class_path', $class_path.$class_name);
+				->set('class_path', $class_path.$class_name)
+				->set('actions', $actions);
 			file_put_contents($controller_path.DIRECTORY_SEPARATOR.$file_name.'.php', $controller->render());
 		}
 
-		if ( ! file_exists($view_path.DIRECTORY_SEPARATOR.$file_name))
+		foreach ($actions as $action)
 		{
-			$view = Kostache::factory('minion/task/app/scaffold/generate/view')
-				->set('class_path', $class_path.$class_name);
-			file_put_contents($view_path.DIRECTORY_SEPARATOR.$file_name.'.php', $view->render());
-		}
-
-		if ( ! file_exists($template_path.DIRECTORY_SEPARATOR.$file_name))
-		{
-			$template = Kostache::factory('minion/task/app/scaffold/generate/template')
-				->set('class_path', $class_path.$class_name);
-			file_put_contents($template_path.DIRECTORY_SEPARATOR.$file_name.'.php', $template->render());
+			if ( ! file_exists($view_path.DIRECTORY_SEPARATOR.$action.'.php'))
+			{
+				$view = Kostache::factory('minion/task/app/scaffold/generate/view')
+					->set('class_path', $class_path.$class_name.'_'.ucfirst($action));
+				file_put_contents($view_path.DIRECTORY_SEPARATOR.$action.'.php', $view->render());
+			}
+	
+			if ( ! file_exists($template_path.DIRECTORY_SEPARATOR.$action.'.mustache'))
+			{
+				$template = Kostache::factory('minion/task/app/scaffold/generate/template')
+					->set('class_path', $class_path.$class_name.'_'.ucfirst($action));
+				file_put_contents($template_path.DIRECTORY_SEPARATOR.$action.'.mustache', $template->render());
+			}
 		}
 	}
 }

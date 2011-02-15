@@ -1,7 +1,8 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 class Controller_{{class_path}} extends Controller_Website {
+{{#actions}}
 
-	public function action_index() {}
-
+	public function action_{{action}}() {}
+{{/actions}}
 }
