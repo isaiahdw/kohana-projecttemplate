@@ -34,7 +34,7 @@ class Minion_Task_App_Scaffold_Generate extends Minion_Task {
 	public function execute(array $config)
 	{
 		if (empty($config['name']))
-			return 'Please provide --name'.PHP_EOL;
+			return 'Please provide --name'.PHP_EOL.'See --help for more information.'.PHP_EOL;
 
 		if (empty($config['actions']))
 		{
