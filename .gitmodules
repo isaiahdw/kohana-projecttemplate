@@ -58,3 +58,6 @@
 [submodule "modules/minion-tasks-migrations"]
 	path = modules/minion-tasks-migrations
 	url = git://github.com/synapsestudios/minion-tasks-migrations.git
+[submodule "modules/minion-tasks-upgrade"]
+	path = modules/minion-tasks-upgrade
+	url = git://github.com/synapsestudios/minion-tasks-upgrade.git
