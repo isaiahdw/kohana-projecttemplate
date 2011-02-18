@@ -20,4 +20,5 @@ return array(
 	'git'                => MODPATH.'git',
 	'minion'             => MODPATH.'minion',
 	'minion-tasks-repo'  => MODPATH.'minion-tasks-repo',
+	'minion-migrations'  => MODPATH.'minion-tasks-migrations',
 );
