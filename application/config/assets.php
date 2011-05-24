@@ -4,8 +4,8 @@ return array
 (
 	'default-template' => array
 	(
-		array('style', 'media/'.Kohana::APP_VERSION.'/kohana/css/compiled/styles.css', 'head'),
-		array('script', 'http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js', 'head'),
+		array('style', Media::url('css/compiled/styles.css'), 'head'),
+		array('script', 'http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js', 'head'),
 		array('script', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js', 'body', 10),
 	),
 );
