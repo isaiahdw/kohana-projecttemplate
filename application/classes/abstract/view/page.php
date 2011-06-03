@@ -10,6 +10,31 @@ abstract class Abstract_View_Page extends Abstract_View_Layout {
 		return parent::assets($assets);
 	}
 
+	public function main_navigation()
+	{
+		$nav = array();
+		$actions = get_class_methods('Controller_Main');
+
+		foreach ($actions as $action)
+		{
+			if (substr($action, 0, 7) === 'action_')
+			{
+				$action = substr($action, 7);
+				$nav[] = array(
+					'url' => Route::url('default', array(
+						'controller' => 'main',
+						'action'     => $action,
+					)),
+					'text' => $action === 'index'
+						? 'home'
+						: str_replace('_', ' ', $action),
+				);
+			}
+		}
+
+		return $nav;
+	}
+
 	public function i18n()
 	{
 		return function($string)

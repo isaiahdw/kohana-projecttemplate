@@ -9,6 +9,11 @@
 
 </head>
 <body id="{{view_name}}">
+	<ul class="nav">
+	{{#main_navigation}}
+		<li><a href="{{url}}">{{text}}</a></li>
+	{{/main_navigation}}
+	</ul>
 	<h1>{{title}}</h1>
 	{{#notices}}
 		<div class="notice {{type}}">{{message}}</div>
