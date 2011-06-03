@@ -1,0 +1,17 @@
+#page {
+	@include container;
+
+	#header {
+		@include column(16);
+
+		ul.nav {
+			@include horizontal-list;
+		}
+	}
+	#content {
+		@include column(16);
+	}
+	#footer {
+		@include column(16);
+	}
+}
