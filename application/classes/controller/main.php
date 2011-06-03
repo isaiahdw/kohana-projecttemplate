@@ -33,4 +33,6 @@ class Controller_Main extends Abstract_Controller_Website {
 		echo Debug::vars(json_decode($result));
 		echo 'done!<br />';die;
 	}
+
+	public function action_gallery() {}
 }
