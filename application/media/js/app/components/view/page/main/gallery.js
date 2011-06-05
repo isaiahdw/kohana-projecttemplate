@@ -29,7 +29,8 @@
 				.css('width', '150px')
 				.css('top', '-15px')
 				.css('height', '150px')
-				.css('z-index', '100');
+				.css('z-index', '100')
+				.addClass('larger');
 		},
 		imageMouseOut: function() {
 			//$(this.el).css('background', 'none');
@@ -38,7 +39,8 @@
 				.css('width', '100px')
 				.css('top', '10px')
 				.css('height', '100px')
-				.css('z-index', '1');
+				.css('z-index', '1')
+				.removeClass('larger');
 		}
 	});
 	app.view.GalleryPage = Backbone.View.extend({
