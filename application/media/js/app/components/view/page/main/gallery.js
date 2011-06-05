@@ -1,33 +1,4 @@
 (function() {
-	// Global app object everything will be inside of
-	app = {
-		controller: {},
-		model: {},
-		view: {}
-	};
-})();
-(function() {
-	app.controller.page_main_gallery = {
-		init: function() {
-			this.model = new app.model.GalleryPage();
-			this.view = new app.view.GalleryPage({model: this.model, el: $('body')});
-		}
-	};
-})();
-(function() {
-	app.model.GalleryPage = Backbone.Model.extend({
-		initialize: function() {
-			this.images = new app.model.ImageCollection();
-		}
-	});
-	app.model.ImageCollection = Backbone.Collection.extend({
-		model: Image
-	});
-	app.model.Image = Backbone.Model.extend({
-
-	});
-})();
-(function() {
 	app.view.Image = Backbone.View.extend({
 		initialize: function(args) {
 
@@ -74,17 +45,6 @@
 		},
 		removeImage: function(image) {
 
-		}
-	});
-})();
-(function() {
-	// Initialize the app here
-	$(function() {
-		var body_id = $('body').attr('id');
-
-		if (app.controller[body_id] && app.controller[body_id].init)
-		{
-			app.controller[body_id].init();
 		}
 	});
 })();
