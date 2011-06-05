@@ -1,8 +1,15 @@
 #gallery {
+	@include clearfix;
+	padding: 2px;
 	div.image {
 		float: left;
+		position: relative;
+		display: block;
+		height: 110px; width: 110px;
 		padding: 5px;
 		img {
+			position: absolute;
+			top: 10px; left: 10px;
 			height: 100px;
 			width: 100px;
 		}
