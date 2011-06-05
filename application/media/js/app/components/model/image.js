@@ -8,6 +8,8 @@
 		model: Image
 	});
 	app.model.Image = Backbone.Model.extend({
-
+		remove: function() {
+			if (this.collection) this.collection.remove(this);
+		}
 	});
 })();
